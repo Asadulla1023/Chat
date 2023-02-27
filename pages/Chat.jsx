@@ -88,7 +88,7 @@ const Sidebar = ({load}) => {
                 src={session ? session.user.image : ""}
                 style={{ width: 60, height: 60, borderRadius: "50px" }}
               />
-              <p>
+              <p style={{fontSize: 18, fontWeight: 500}}>
                 {session ? session.user.name : null}
                 <br />
                 {session ? session.user.email: null}

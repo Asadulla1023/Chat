@@ -20,12 +20,17 @@ export default function Home() {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/post.png" />
         </Head>
-        {loading ? <LoadingPage/> : !session ? (
+        {loading ? (
+          <LoadingPage />
+        ) : !session ? (
           <AuthPage />
         ) : (
           <div className={styles.homePage}>
             <div className={styles.container}>
-              <Sidebar load={loading} />            
+              <Sidebar load={loading} />
+              <div className={styles.rightSide}>
+                <p style={{ textAlign: "center", fontSize: 32, fontWeight: 500, userSelect: "none" }}>Select chat or create new chat</p>
+              </div>
             </div>
           </div>
         )}
