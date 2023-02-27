@@ -1,21 +1,14 @@
 import Head from "next/head";
-import Image from "next/image";
-import { useAuthState } from "react-firebase-hooks/auth";
 import styles from "../styles/auth.module.css";
-import { auth } from "../firebase";
-import { useRouter } from "next/router";
 import "firebase/database";
 import LoadingPage from "@/pages/components/LoadingPage";
 import Sidebar from "@/pages/Chat";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signIn } from "next-auth/react";
 
 export default function Home() {
-  const router = useRouter();
-  const { id } = router.query;
   const { data: session } = useSession();
-  const [user, loading, error] = useAuthState(auth);
   // signOut()
-  if (session && !loading) {
+  if (session) {
     return (
       <>
         <Head>

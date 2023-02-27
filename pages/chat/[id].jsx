@@ -10,7 +10,7 @@ import {
 } from "react-firebase-hooks/firestore";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
-import LoadingPage from "@/pages/components/LoadingPage";
+import LoadingPage from "../components/LoadingPage";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useRouter } from "next/router";
 import { query } from "firebase/firestore";
@@ -65,7 +65,7 @@ const Messaging = () => {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/post.png" />
         </Head>
-        <Sidebar loading={loading}/>
+        <Sidebar loading={session}/>
         <div className={styles.chat}>
           <div className={styles.container}>
             <div className={styles.topBar}>

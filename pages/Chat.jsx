@@ -2,14 +2,12 @@ import React, { useEffect } from "react";
 
 import styles from "../styles/chat.module.css";
 import { doc, setDoc, addDoc } from "firebase/firestore";
-import { auth, db } from "../firebase";
-import { useRouter } from "next/router";
+import { db } from "../firebase";
 import { collection } from "firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { useSession } from "next-auth/react";
 import getOtherEmail from "@/utils/getOtherEmail";
 import Link from "next/link";
-import { useAuthState } from "react-firebase-hooks/auth";
 import Image from "next/image";
 
 const Sidebar = ({load}) => {
