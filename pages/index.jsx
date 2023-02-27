@@ -5,7 +5,7 @@ import styles from "../styles/auth.module.css";
 import { auth } from "../firebase";
 import { useRouter } from "next/router";
 import "firebase/database";
-import LoadingPage from "@/components/LoadingPage";
+import LoadingPage from "@/pages/components/LoadingPage";
 import Sidebar from "@/pages/Chat";
 import { useSession, signIn, signOut } from "next-auth/react";
 
@@ -29,7 +29,7 @@ export default function Home() {
         ) : (
           <div className={styles.homePage}>
             <div className={styles.container}>
-              <Sidebar loading={loading} />
+              <Sidebar load={loading} />
             </div>
           </div>
         )}

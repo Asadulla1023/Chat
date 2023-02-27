@@ -12,12 +12,11 @@ import Link from "next/link";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Image from "next/image";
 
-const Sidebar = ({loading}) => {
-  if (!loading) {
-    const [user, loading1, err] = useAuthState(auth);
+const Sidebar = ({load}) => {
+  if (!load) {
     useEffect(() => {
-      const aboutUser = doc(db, "user", session.user.uid);
-      !loading1 &&
+      const aboutUser = !load && doc(db, "user", !load && session.user.uid);
+      !load &&
         setDoc(
           aboutUser,
           {
@@ -93,7 +92,7 @@ const Sidebar = ({loading}) => {
               <p>
                 {session ? session.user.name : null}
                 <br />
-                {session.user.email}
+                {session ? session.user.email: null}
               </p>
             </div>
           </div>

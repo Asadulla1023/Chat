@@ -10,7 +10,7 @@ import {
 } from "react-firebase-hooks/firestore";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
-import LoadingPage from "@/components/LoadingPage";
+import LoadingPage from "@/pages/components/LoadingPage";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useRouter } from "next/router";
 import { query } from "firebase/firestore";
