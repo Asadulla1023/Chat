@@ -99,8 +99,9 @@ const Messaging = () => {
                             key={index}
                           >
                             {e.text} 
+                            <span style={sender ? {textAlign: "right", fontSize: 10}: {fontSize: 10, textAlign: "left"}}><Moment fromNow>{chat?.timestamp?.toDate()}</Moment></span>
                           </p>
-                          {/* <Moment fromNow>{chat?.timestamp?.toDate()}</Moment> */}
+                           
                           </>
                         );
                       })

@@ -176,8 +176,13 @@
     margin: 5px 0;
     min-width: 60px;
     color: #000;
+    display: flex;
+    flex-direction: column;
 }
 
+.messagesCont > p > span {
+  color: #0000002f;
+}
 
 .messagesCont > .gotMsg {
     background: #88fd92;
