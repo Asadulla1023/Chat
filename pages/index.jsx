@@ -11,7 +11,7 @@ export default function Home() {
   const { data: session } = useSession();
   const [user, loading] = useAuthState(auth)
   // signOut()
-  if (session) {
+  if (!loading) {
     return (
       <>
         <Head>
