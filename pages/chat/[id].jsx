@@ -16,6 +16,7 @@ import { useRouter } from "next/router";
 import { query } from "firebase/firestore";
 import { db } from "../../firebase";
 import getOtherEmail from "@/utils/getOtherEmail";
+import Moment from "react-moment";
 import Head from "next/head";
 const Messaging = () => {
   const msgRef = useRef(null);
@@ -65,7 +66,7 @@ const Messaging = () => {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link rel="icon" href="/post.png" />
         </Head>
-        <Sidebar loading={session} />
+        <Sidebar loading={loading} />
         <div className={styles.chat}>
           <div className={styles.container}>
             <div className={styles.topBar}>
@@ -87,6 +88,7 @@ const Messaging = () => {
                     ? messages.map((e, index) => {
                         const sender = e.sender === session.user.email;
                         return (
+                          <>
                           <p
                             className={sender ? styles.gotMsg : null}
                             style={
@@ -96,8 +98,10 @@ const Messaging = () => {
                             }
                             key={index}
                           >
-                            {e.text} <span>{}</span>
+                            {e.text} 
                           </p>
+                          {/* <Moment fromNow>{chat?.timestamp?.toDate()}</Moment> */}
+                          </>
                         );
                       })
                     : console.log("wef")}
