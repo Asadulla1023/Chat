@@ -6,7 +6,7 @@ import { auth } from "../firebase";
 import { useRouter } from "next/router";
 import "firebase/database";
 import LoadingPage from "@/components/LoadingPage";
-import { Sidebar } from "@/pages/Chat";
+import Sidebar from "@/pages/Chat";
 import { useSession, signIn, signOut } from "next-auth/react";
 
 export default function Home() {

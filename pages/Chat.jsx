@@ -12,7 +12,7 @@ import Link from "next/link";
 import { useAuthState } from "react-firebase-hooks/auth";
 import Image from "next/image";
 
-export const Sidebar = () => {
+const Sidebar = () => {
   const [user, loading1, err] = useAuthState(auth);
   useEffect(() => {
     const aboutUser = doc(db, "user", session.user.uid);
@@ -44,7 +44,12 @@ export const Sidebar = () => {
 
   const newChat = async () => {
     const input = prompt("enter user email");
-    if (!chatExists(input) && input !== session.user.email && input && input.trimEnd()) {
+    if (
+      !chatExists(input) &&
+      input !== session.user.email &&
+      input &&
+      input.trimEnd()
+    ) {
       await addDoc(collection(db, "chats"), {
         users: [session.user.email, input],
       });
@@ -102,3 +107,5 @@ export const Sidebar = () => {
     </div>
   );
 };
+
+export default Sidebar;
