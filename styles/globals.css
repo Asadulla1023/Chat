@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap");
+
+body {
+  background: #fafafa;
+  height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+#__next {
+  height: 100%;
+}
+
+.chat_msgBar__D6VQF::-webkit-scrollbar {
+  width: 5px;
+  background: #000;
+  border-radius: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
