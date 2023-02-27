@@ -4,9 +4,12 @@ import "firebase/database";
 import LoadingPage from "@/pages/components/LoadingPage";
 import Sidebar from "@/pages/Chat";
 import { useSession, signIn } from "next-auth/react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "@/firebase";
 
 export default function Home() {
   const { data: session } = useSession();
+  const [user, loading] = useAuthState(auth)
   // signOut()
   if (session) {
     return (
