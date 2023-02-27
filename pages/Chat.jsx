@@ -5,12 +5,13 @@ import { doc, setDoc, addDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { collection } from "firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import getOtherEmail from "@/utils/getOtherEmail";
 import Link from "next/link";
 import Image from "next/image";
 
 const Sidebar = ({load}) => {
+  // signOut()
   if (!load) {
     useEffect(() => {
       const aboutUser = !load && doc(db, "user", !load && session.user.uid);
