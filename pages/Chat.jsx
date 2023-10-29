@@ -10,7 +10,7 @@ import getOtherEmail from "@/utils/getOtherEmail";
 import Link from "next/link";
 import Image from "next/image";
 
-const Sidebar = ({load}) => {
+const Sidebar = ({ load }) => {
   // signOut()
   if (!load) {
     useEffect(() => {
@@ -29,6 +29,7 @@ const Sidebar = ({load}) => {
     const [snapshot, loading, error] = useCollection(collection(db, "chats"));
     const chats = snapshot?.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
     const { data: session } = useSession();
+    console.log(snapshot);
 
     const chatExists = (email) =>
       chats?.find(
@@ -88,10 +89,10 @@ const Sidebar = ({load}) => {
                 src={session ? session.user.image : ""}
                 style={{ width: 60, height: 60, borderRadius: "50px" }}
               />
-              <p style={{fontSize: 18, fontWeight: 500}}>
+              <p style={{ fontSize: 18, fontWeight: 500 }}>
                 {session ? session.user.name : null}
                 <br />
-                {session ? session.user.email: null}
+                {session ? session.user.email : null}
               </p>
             </div>
           </div>

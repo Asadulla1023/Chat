@@ -30,9 +30,7 @@ const Messaging = () => {
     !loading &&
     query(collection(db, "chats", id, "messages"), orderBy("timestamp"));
   const [messages] = useCollectionData(q);
-
   const [chat] = useDocumentData(!loading && doc(db, "chats", id));
-
   const sendMessage = async (e) => {
     e.preventDefault();
     if (input.trimEnd()) {
@@ -89,19 +87,28 @@ const Messaging = () => {
                         const sender = e.sender === session.user.email;
                         return (
                           <>
-                          <p
-                            className={sender ? styles.gotMsg : null}
-                            style={
-                              !sender
-                                ? { textAlign: "left" }
-                                : { textAlign: "right" }
-                            }
-                            key={index}
-                          >
-                            {e.text} 
-                            <span style={sender ? {textAlign: "right", fontSize: 10}: {fontSize: 10, textAlign: "left"}}><Moment fromNow>{chat?.timestamp?.toDate()}</Moment></span>
-                          </p>
-                           
+                            <p
+                              className={sender ? styles.gotMsg : null}
+                              style={
+                                !sender
+                                  ? { textAlign: "left" }
+                                  : { textAlign: "right" }
+                              }
+                              key={index}
+                            >
+                              {e.text}
+                              <span
+                                style={
+                                  sender
+                                    ? { textAlign: "right", fontSize: 10 }
+                                    : { fontSize: 10, textAlign: "left" }
+                                }
+                              >
+                                <Moment fromNow>
+                                  {chat?.timestamp?.toDate()}
+                                </Moment>
+                              </span>
+                            </p>
                           </>
                         );
                       })
